@@ -6,4 +6,4 @@ Este repositorio está dividido en carpetas. Cada carpeta se corresponde con la 
 
 Este módulo es introductorio para personas que nunca han usado HTML ni CSS
 
-:file_folder: [Enlace al módulo 0](modulo-0/)
+:eye: [Echa un vistazo a la práctica del módulo 0](modulo-0)
