@@ -13,3 +13,9 @@ Este módulo es introductorio para personas que nunca han usado HTML ni CSS
 Familiarización con un editor de código y primer contacto con JavaScript
 
 :eye: [Echa un vistazo a la práctica del módulo 1](modulo-1)
+
+#### :point_right: Módulo 2 - Variables y tipos de datos :card_index_dividers:
+
+Las piezas básicas de una aplicación web
+
+:eye: [Echa un vistazo a la práctica del módulo 2](modulo-2)
