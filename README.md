@@ -19,3 +19,9 @@ Familiarización con un editor de código y primer contacto con JavaScript
 Las piezas básicas de una aplicación web
 
 :eye: [Echa un vistazo a la práctica del módulo 2](modulo-2)
+
+### :point_right: Módulo 3 - Operadores y flujos de control :vertical_traffic_light:
+
+Para manejar y transformar datos
+
+:eye: [Echa un vistazo a la práctica del módulo 3](modulo-3)
