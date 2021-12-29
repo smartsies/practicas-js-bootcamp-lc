@@ -25,3 +25,9 @@ Las piezas básicas de una aplicación web
 Para manejar y transformar datos
 
 :eye: [Echa un vistazo a la práctica del módulo 3](modulo-3)
+
+### :point_right: Módulo 4 - Funciones y eventos :jigsaw:
+
+Para descomponer los programas en piezas pequeñas y reutilizables e interaccionar con la persona usuaria
+
+:eye: [Echa un vistazo a la práctica del módulo 4](modulo-4)
