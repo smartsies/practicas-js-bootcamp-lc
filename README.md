@@ -31,3 +31,7 @@ Para manejar y transformar datos
 Para descomponer los programas en piezas pequeñas y reutilizables e interaccionar con la persona usuaria
 
 :eye: [Echa un vistazo a la práctica del módulo 4](modulo-4)
+
+Y un par de prácticas más:
+:eye: [Una calculadora secuencial](modulo-4-extra-calculadora)
+:eye: [Reservas en un hotel](modulo-4-extra-reservas)
