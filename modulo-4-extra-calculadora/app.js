@@ -6,22 +6,13 @@ const divide = (operand1, operand2) => operand1 / operand2;
 let inputValue;
 let accumulator = 0;
 let lastOperationSelected;
+let result;
 
 document.getElementById("input-value").value = 0;
 
-const handleOperationButtonClick = event => {
-  let result;
-  inputValue = parseInt(document.getElementById("input-value").value);
+const getInputValue = () => parseInt(document.getElementById("input-value").value);
 
-  if (lastOperationSelected === "equals") {
-    document.getElementById("result").innerHTML = "";
-    result = inputValue;
-  }
-
-  if (!lastOperationSelected) {
-    result = inputValue;
-  }
-
+const operate = (lastOperationSelected, accumulator, inputValue) => {
   switch (lastOperationSelected) {
     case "add": 
       result = add(accumulator, inputValue);
@@ -36,6 +27,22 @@ const handleOperationButtonClick = event => {
       result = divide(accumulator, inputValue);
       break;
   }
+  return result;
+}
+
+const handleOperationButtonClick = (event) => {
+  inputValue = getInputValue();
+
+  if (lastOperationSelected === "equals") {
+    document.getElementById("result").innerHTML = "";
+    result = inputValue;
+  }
+
+  if (!lastOperationSelected) {
+    result = inputValue;
+  }
+
+  result = operate(lastOperationSelected, accumulator, inputValue);
   
   accumulator = result;
   document.getElementById("input-value").value = result;
@@ -43,24 +50,9 @@ const handleOperationButtonClick = event => {
 }
 
 const handleEqualsButtonClick = () => {
+  inputValue = getInputValue();
 
-  inputValue = parseInt(document.getElementById("input-value").value);
-  let result;
-
-  switch (lastOperationSelected) {
-    case "add": 
-      result = add(accumulator, inputValue);
-      break;
-    case "substract": 
-      result = substract(accumulator, inputValue);
-      break;
-    case "multiply": 
-      result = multiply(accumulator, inputValue);
-      break;
-    case "divide": 
-      result = divide(accumulator, inputValue);
-      break;
-  }
+  result = operate(lastOperationSelected, accumulator, inputValue);
 
   lastOperationSelected = "equals";
 
