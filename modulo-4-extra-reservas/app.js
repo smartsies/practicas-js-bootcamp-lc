@@ -1,16 +1,36 @@
-let roomType = "standard";
-let spaUser = false;
-let roomSize = "double";
-let roomNights = 0;
-let parkingNights = 0;
+function getRoomType() {
+  return document.getElementById("room-type").value;
+}
+
+function getSpaUse() {
+  return document.getElementById("spa-selected").checked;
+}
+
+function getRoomSize() {
+  return document.getElementById("room-size").value;
+}
+
+function getRoomNights() {
+  return parseInt(document.getElementById("room-nights").value);
+}
+
+function getParkingNights() {
+  return parseInt(document.getElementById("parking-nights").value);
+}
 
 function calcResult() {
+  const roomType = getRoomType();
+  const spaUser = getSpaUse();
+  const roomSize = getRoomSize();
+  const roomNights = getRoomNights();
+  const parkingNights = getParkingNights();
+
   let price;
 
   if (roomType === "standard") {
     price = roomNights * 100;
   } else if (roomType === "junior-suite") {
-    price = roomNights * 120
+    price = roomNights * 120;
   } else {
     price = roomNights *150;
   }
@@ -32,36 +52,17 @@ function calcResult() {
     price = price + parkingPrice;
   }
 
+  return price;
+}
+
+function handleFormChange() {
+  const price = calcResult();
+  
   document.getElementById("result").innerHTML = "El precio total es de " + price + " euros";
 }
 
-function handleRoomTypeChange(event) {
-  roomType = event.target.value;
-  calcResult();
-}
-
-function handleSpaSelectorChange(event) {
-  spaUser = event.currentTarget.checked;
-  calcResult();
-}
-
-function handleRoomSizeChange(event) {
-  roomSize = event.target.value;
-  calcResult();
-}
-
-function handleRoomNightsChange(event) {
-  roomNights = parseInt(event.target.value);
-  calcResult();
-}
-
-function handleParkingNightsChange(event) {
-  parkingNights = parseInt(event.target.value);
-  calcResult();
-}
-
-document.getElementById("room-type").addEventListener("change", handleRoomTypeChange);
-document.getElementById("spa-selected").addEventListener("change", handleSpaSelectorChange);
-document.getElementById("room-size").addEventListener("change", handleRoomSizeChange);
-document.getElementById("room-nights").addEventListener("keyup", handleRoomNightsChange);
-document.getElementById("parking-nights").addEventListener("keyup", handleParkingNightsChange);
+document.getElementById("room-type").addEventListener("change", handleFormChange);
+document.getElementById("spa-selected").addEventListener("change", handleFormChange);
+document.getElementById("room-size").addEventListener("change", handleFormChange);
+document.getElementById("room-nights").addEventListener("keyup", handleFormChange);
+document.getElementById("parking-nights").addEventListener("keyup", handleFormChange);
