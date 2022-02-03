@@ -40,7 +40,4 @@ Y un par de prácticas más:
 
 Almacenar listas de datos y recorrerlas
 
-:eye: [Echa un vistazo a la práctica del módulo 5](modulo-5-base)
-
-Y aquí va otra, esta vez con algo de interfaz:
-:eye: [Una lista de la compra rudimentaria](modulo-5-opcional)
+:eye: [Echa un vistazo a la práctica del módulo 5](modulo-5)
