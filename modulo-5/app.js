@@ -36,65 +36,123 @@ const shoppingCart = [
   }
 ];
 
-//listar todos los elementos del carrito
-console.log("---------EJERCICIO 1---------");
-
-for (item of shoppingCart) {
-  for (attr in item) {
-    console.log(attr + ": " + item[attr])
+//Función para imprimir carrito de la compra por consola
+function printShoppingCart(cart) {
+  for (item of cart) {
+    for (attr in item) {
+      console.log(attr + ": " + item[attr])
+    }
+    
+    console.log("---------")
   }
-  console.log("---------")
 }
 
-//eliminar un producto del carrito de la compra
-console.log(" ");
+//Función para eliminar un producto del carrito de la compra
+function removeProduct(cart, itemToBeRemoved) {
+  let index;
+
+  for (i = 0; i < cart.length; i++) {
+    if (cart[i].id === itemToBeRemoved) {
+      index = i;
+    }
+  }
+
+  return cart.splice(index, 1);
+}
+
+//Función para calcular el importe total del carrito
+function calcTotal(cart) {
+  let total = 0;
+
+  for (item of cart) {
+    total += item.price * item.count;
+  }
+
+  return total;
+}
+
+//Función para filtrar los productos premium
+function filterPremiumProducts(cart) {
+  let premiumItems = [];
+
+  for (item of cart) {
+    if (item.premium) premiumItems.push(item);
+  }
+
+  return premiumItems;
+}
+
+//Función para determinar si se puede hacer descuento
+function hasDiscount(totalAmount) {
+  if (totalAmount > 50) {
+    return totalAmount * 0.95;
+  }
+
+  return totalAmount;
+}
+
+//Función para determinar si se cobran los gastos de envío
+function hasShippingCosts(cart) {
+  let premiumItems = filterPremiumProducts(cart);
+
+  if (cart.length === premiumItems.length) {
+    console.log('Gastos de envío cero');
+  } else {
+    console.log('Con gastos de envío');
+  }
+}
+
+//---------EJERCICIO 1 + OPCIONAL---------
+//Listar todos los elementos del carrito en el HTML
+for (item of shoppingCart) {
+  const liNode = document.createElement("li");
+
+  for (attr in item) {
+    if (attr === "name" || "price" || "premium") {
+      const pNode = document.createElement("p");
+      const textNode = document.createTextNode(attr + ": " + item[attr]);
+      pNode.appendChild(textNode);
+      liNode.appendChild(pNode);
+    }
+  }
+
+  document.getElementById("products-list").appendChild(liNode);
+}
+
+//---------EJERCICIO 2---------
+//Eliminar un producto del carrito de la compra
 console.log("---------EJERCICIO 2---------");
 
-const itemToBeEliminatedId = 113;
-let index;
+removeProduct(shoppingCart, 113);
 
-for (i = 0; i < shoppingCart.length; i++) {
-  if (shoppingCart[i].id === itemToBeEliminatedId) {
-    index = i;
-  }
-}
+printShoppingCart(shoppingCart);
 
-shoppingCart.splice(index, 1);
-
-for (item of shoppingCart) {
-  for (attr in item) {
-    console.log(attr + ": " + item[attr])
-  }
-  console.log("---------")
-}
-
-//calcular el total del carrito de la compra 
-//(se calcula sobre el carrito con un elemento ya eliminado en el ejercicio anterior)
+//---------EJERCICIO 3---------
+//Calcular el total del carrito de la compra 
+//Se calcula sobre el carrito con un elemento ya eliminado en el ejercicio anterior
+//Aplicar un descuento del 5% si la compra es mayor de 50€
+//Calcular si tiene gastos de envío (EJERCICIO OPCIONAL)
 console.log(" ");
 console.log("---------EJERCICIO 3---------");
 
-let total = 0;
+const total = calcTotal(shoppingCart);
 
-for (item of shoppingCart) {
-  total = total + item.price * item.count;
-}
+const totalWithDiscount = hasDiscount(total);
 
-console.log("Total: " + total + " euros")
+console.log("Total: " + totalWithDiscount + " euros")
 
-//filtrar por los productos premium
+hasShippingCosts(shoppingCart);
+
+//---------EJERCICIO 4---------
+//Filtrar los productos que sean premium
+//Calcular si tiene gastos de envío (EJERCICIO OPCIONAL)
 console.log(" ");
 console.log("---------EJERCICIO 4---------");
 
-let premiumItems = [];
+const premiumItems = filterPremiumProducts(shoppingCart);
 
-for (item of shoppingCart) {
-  if (item.premium) premiumItems.push(item);
-}
+console.log('Productos premium:')
 
-console.log('Items premium:')
-for (item of premiumItems) {
-  for (attr in item) {
-    console.log(attr + ": " + item[attr])
-  }
-  console.log("---------")
-}
+printShoppingCart(premiumItems);
+
+hasShippingCosts(premiumItems);
