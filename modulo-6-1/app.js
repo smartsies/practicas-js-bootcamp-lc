@@ -153,13 +153,9 @@ function calcProductIVA(product, productPrice) {
 }
 
 function printTotal(subtotal, taxes, total) {
-  const subtotalNode = document.createTextNode("Subtotal: " + subtotal + " €");
-  const ivaNode = document.createTextNode("IVA: " + taxes + " €");
-  const totalNode = document.createTextNode("TOTAL: " + total + " €");
-
-  document.getElementById("subtotal").appendChild(subtotalNode);
-  document.getElementById("iva").appendChild(ivaNode);
-  document.getElementById("total").appendChild(totalNode);
+  document.getElementById("subtotal").innerText = "Subtotal: " + subtotal + " €";
+  document.getElementById("iva").innerText = "IVA: " + taxes + " €";
+  document.getElementById("total").innerText = "TOTAL: " + total + " €";
 }
 
 function calcTotal() {
