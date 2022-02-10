@@ -33,7 +33,9 @@ Para descomponer los programas en piezas pequeñas y reutilizables e interaccion
 :eye: [Echa un vistazo a la práctica del módulo 4](modulo-4)
 
 Y un par de prácticas más:
+
 :eye: [Una calculadora secuencial](modulo-4-extra-calculadora)
+
 :eye: [Reservas en un hotel](modulo-4-extra-reservas)
 
 ### :point_right: Módulo 5 - Arrays y bucles :repeat:
@@ -41,3 +43,9 @@ Y un par de prácticas más:
 Almacenar listas de datos y recorrerlas
 
 :eye: [Echa un vistazo a la práctica del módulo 5](modulo-5)
+
+### :point_right: Módulo 6 - Algoritmos :hammer_and_wrench:
+
+Un algoritmo resuelve un problema
+
+:eye: [Echa un vistazo a la práctica del módulo 6.1](modulo-6-1)
