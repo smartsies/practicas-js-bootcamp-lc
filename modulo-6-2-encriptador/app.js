@@ -1,47 +1,35 @@
 const plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
 const encryptedAlphabet = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
 
-function encrypt(text) {
-  let encryptedText = "";
+function translateText(text, originAlphabet, destinationAlphabet) {
+  let translation = "";
   let lowerCaseText = text.toLowerCase();
 
   for (let i = 0; i < lowerCaseText.length; i++) {
-    if (lowerCaseText[i] === " ") encryptedText += lowerCaseText[i];
+    if (lowerCaseText[i] === " ") translation += lowerCaseText[i];
 
-    for (let j = 0; j < plainAlphabet.length; j++) {
-      if (lowerCaseText[i] === plainAlphabet[j]) encryptedText += encryptedAlphabet[j];
+    for (let j = 0; j < originAlphabet.length; j++) {
+      if (lowerCaseText[i] === originAlphabet[j]) translation += destinationAlphabet[j];
     }
   }
   
-  return encryptedText;
+  return translation;
 }
 
-function decrypt(text) {
-  let decryptedText = "";
-
-  for (let i = 0; i < text.length; i++) {
-    if (text[i] === " ") decryptedText += text[i];
-
-    for (let j = 0; j < encryptedAlphabet.length; j++) {
-      if (text[i] === encryptedAlphabet[j]) decryptedText += plainAlphabet[j];
-    }
-  }
-  
-  return decryptedText;
-}
+//he pensado que quizá podría hacer una única función para manejar ambos botones
+//pero como son botones distintos, he preferido dejarlo así, por claridad
 
 function handleEncryptButton() {
   const textToEncrypt = document.getElementById("decrypted-text").value;
-  const encryptedText = encrypt(textToEncrypt);
+  const encryptedText = translateText(textToEncrypt, plainAlphabet, encryptedAlphabet);
   document.getElementById("encrypted-text").value = encryptedText;
 }
 
 function handleDecryptButton() {
   const textToDecrypt = document.getElementById("encrypted-text").value;
-  const decryptedText = decrypt(textToDecrypt);
+  const decryptedText = translateText(textToDecrypt, encryptedAlphabet, plainAlphabet);
   document.getElementById("decrypted-text").value = decryptedText;
 }
 
 document.getElementById("encrypt-button").addEventListener("click", handleEncryptButton);
 document.getElementById("decrypt-button").addEventListener("click", handleDecryptButton);
-
