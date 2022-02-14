@@ -1,6 +1,7 @@
 ## PRÁCTICAS DEL BOOTCAMP DE JS EN :lemon:LEMONCODE:lemon:
 
 Este repositorio está dividido en carpetas. Cada carpeta se corresponde con la práctica de un módulo del bootcamp.
+Es un bootcamp de JavaScript por lo que no encontrarás interfaces diseños ni interfaces molonas.
 
 ### :point_right: Módulo 0 - Seminario previo :pencil2:
 
@@ -49,3 +50,5 @@ Almacenar listas de datos y recorrerlas
 Un algoritmo resuelve un problema
 
 :eye: [Echa un vistazo a la práctica del módulo 6.1](modulo-6-1)
+
+:eye: [Echa un vistazo a la práctica del módulo 6.2, encriptador de mensajes](modulo-6-2-encriptador)
