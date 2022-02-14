@@ -2,49 +2,44 @@ const plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
 const encryptedAlphabet = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
 
 function encrypt(text) {
-  let character;
   let encryptedText = "";
+  let lowerCaseText = text.toLowerCase();
 
-  for (let index = 0; index < text.length; index++) {
-    if (text[index] === " ") character = " ";
+  for (let i = 0; i < lowerCaseText.length; i++) {
+    if (lowerCaseText[i] === " ") encryptedText += lowerCaseText[i];
 
     for (let j = 0; j < plainAlphabet.length; j++) {
-      if (text[index] === plainAlphabet[j]) character = encryptedAlphabet[j];
+      if (lowerCaseText[i] === plainAlphabet[j]) encryptedText += encryptedAlphabet[j];
     }
-
-    encryptedText += character;
   }
   
   return encryptedText;
 }
 
 function decrypt(text) {
-  let character;
-  let encryptedText = "";
+  let decryptedText = "";
 
-  for (let index = 0; index < text.length; index++) {
-    if (text[index] === " ") character = " ";
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] === " ") decryptedText += text[i];
 
     for (let j = 0; j < encryptedAlphabet.length; j++) {
-      if (text[index] === encryptedAlphabet[j]) character = plainAlphabet[j];
+      if (text[i] === encryptedAlphabet[j]) decryptedText += plainAlphabet[j];
     }
-
-    encryptedText += character;
   }
   
-  return encryptedText;
+  return decryptedText;
 }
 
 function handleEncryptButton() {
-  const textToEncrypt = document.getElementById("text-to-encrypt").value;
+  const textToEncrypt = document.getElementById("decrypted-text").value;
   const encryptedText = encrypt(textToEncrypt);
-  document.getElementById("text-to-decrypt").value = encryptedText;
+  document.getElementById("encrypted-text").value = encryptedText;
 }
 
 function handleDecryptButton() {
-  const textToDecrypt = document.getElementById("text-to-decrypt").value;
+  const textToDecrypt = document.getElementById("encrypted-text").value;
   const decryptedText = decrypt(textToDecrypt);
-  document.getElementById("text-to-encrypt").value = decryptedText;
+  document.getElementById("decrypted-text").value = decryptedText;
 }
 
 document.getElementById("encrypt-button").addEventListener("click", handleEncryptButton);
