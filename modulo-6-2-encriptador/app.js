@@ -16,9 +16,6 @@ function translateText(text, originAlphabet, destinationAlphabet) {
   return translation;
 }
 
-//he pensado que quizá podría hacer una única función para manejar ambos botones
-//pero como son botones distintos, he preferido dejarlo así, por claridad
-
 function handleEncryptButton() {
   const textToEncrypt = document.getElementById("decrypted-text").value;
   const encryptedText = translateText(textToEncrypt, plainAlphabet, encryptedAlphabet);
