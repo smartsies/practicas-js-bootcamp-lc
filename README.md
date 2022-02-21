@@ -54,3 +54,5 @@ Un algoritmo resuelve un problema
 :eye: [Echa un vistazo a la práctica del módulo 6.2, encriptador de mensajes](modulo-6-2-encriptador)
 
 :eye: [Echa un vistazo a la práctica del módulo 6.2, generador aleatorio](modulo-6-2-aleatorio)
+
+:eye: [Echa un vistazo a la práctica del módulo 6.3, gestión de agenda](modulo-6-3-agenda)
