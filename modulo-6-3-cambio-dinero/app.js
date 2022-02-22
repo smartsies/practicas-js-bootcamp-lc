@@ -49,7 +49,12 @@ function printChange(brokenDownChange) {
   }
 }
 
+function removePreviousResults() {
+  document.getElementById("change").innerText = "";
+}
+
 function handleButtonClick() {
+  removePreviousResults();
   const changeAmount = getChangeAmount();
   const brokenDownChange = breakChangeDown(changeAmount);
   printChange(brokenDownChange);
